@@ -1,7 +1,7 @@
 import Hero from "@/features/Hero/components/Hero";
 import BannerGrid from "@/features/Banner/components/Banner";
 import Item from "@/features/Items/components/Item";
-import NewArrivals from "@/features/NewArivval/NewArivval";
+import NewArrivals from "@/features/NewArrival/NewArrival";
 
 // --- Halaman Utama ---
 export default function Home() {
