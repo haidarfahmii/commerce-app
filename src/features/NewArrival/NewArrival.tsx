@@ -10,7 +10,7 @@ const newProducts = [
     id: 1,
     name: "Loveseat Sofa",
     price: "Rp 3.500.000",
-    imageUrl: "/assets/images/loveseat-sova.svg",
+    imageUrl: "/assets/images/sofa.svg",
     isNew: true,
   },
   {

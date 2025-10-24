@@ -5,13 +5,13 @@ export async function POST(request: NextRequest) {
   try {
     const { email, password } = await request.json();
 
-    const user = await Backendless.UserService.login(email, password, true);
+    const response = await Backendless.UserService.login(email, password, true);
 
     return NextResponse.json(
       {
         success: true,
         message: "User logged is successfully",
-        user,
+        data: response,
       },
       {
         status: 200,
@@ -22,6 +22,7 @@ export async function POST(request: NextRequest) {
       {
         success: false,
         message: error.message || "Something went wrong",
+        data: null,
       },
       {
         status: 500,

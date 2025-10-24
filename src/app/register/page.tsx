@@ -2,15 +2,17 @@
 
 import { useState } from "react";
 import { useFormik } from "formik";
-import axios from "axios";
 import { useRouter } from "next/navigation";
+import axios from "axios";
 import { CiUser, CiMail, CiLock } from "react-icons/ci";
 import { signupValidationSchema } from "@/features/register/schemas/registerValidationSchema";
+import useAuthStore from "@/stores/useAuthStores";
 
 export default function RegisterPage() {
   const router = useRouter();
   const [authError, setAuthError] = useState<string | null>(null);
   const [authSuccess, setAuthSuccess] = useState<string | null>(null);
+  const { user } = useAuthStore();
 
   const formik = useFormik({
     initialValues: { name: "", email: "", password: "" },
@@ -26,7 +28,7 @@ export default function RegisterPage() {
         });
         setAuthSuccess("Registration successful. Please sign in.");
         resetForm();
-        setTimeout(() => router.push("/login"), 900);
+        setTimeout(() => router.push("/login"), 800);
       } catch (err: any) {
         setAuthError(err?.response?.data?.message || "Registration failed");
       } finally {
@@ -47,7 +49,10 @@ export default function RegisterPage() {
         </div>
 
         <div className="p-8 md:p-12">
-          <h1 className="text-3xl font-semibold mb-2">Create Account</h1>
+          <h1 className="text-3xl text-slate-800 font-semibold mb-2">
+            Create Account
+          </h1>
+          <p>{user.email}</p>
           <p className="text-sm text-gray-500 mb-6">
             Use your email and password to sign up
           </p>
@@ -76,7 +81,7 @@ export default function RegisterPage() {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.name}
-                  className="w-full pl-10 py-3 border-b border-gray-200 focus:outline-none"
+                  className="w-full pl-10 py-3 text-slate-600 border-b border-gray-200 focus:outline-none"
                 />
               </div>
               {formik.touched.name && formik.errors.name && (
@@ -98,7 +103,7 @@ export default function RegisterPage() {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.email}
-                  className="w-full pl-10 py-3 border-b border-gray-200 focus:outline-none"
+                  className="w-full pl-10 py-3 text-slate-600 border-b border-gray-200 focus:outline-none"
                 />
               </div>
               {formik.touched.email && formik.errors.email && (
@@ -120,7 +125,7 @@ export default function RegisterPage() {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.password}
-                  className="w-full pl-10 py-3 border-b border-gray-200 focus:outline-none"
+                  className="w-full pl-10 py-3 text-slate-600 border-b border-gray-200 focus:outline-none"
                 />
               </div>
               {formik.touched.password && formik.errors.password && (
