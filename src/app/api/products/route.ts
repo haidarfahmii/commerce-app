@@ -1,5 +1,4 @@
 import Backendless from "@/utils/backendless";
-import { data } from "framer-motion/client";
 import { NextResponse } from "next/server";
 
 export async function GET() {
@@ -9,7 +8,7 @@ export async function GET() {
     return NextResponse.json(
       {
         success: true,
-        message: "Berhasil mengambil data produk",
+        message: "success get data products",
         data: response,
       },
       {
@@ -21,7 +20,7 @@ export async function GET() {
       {
         success: false,
         message:
-          error.message || "Gagal mengambil data produk, coba lagi nanti...",
+          error.message || "failed get data products, please try again later",
         data: null,
       },
       {

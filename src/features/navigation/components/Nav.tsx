@@ -27,10 +27,10 @@ export default function Nav() {
             Shop
           </Link>
           <Link
-            href="#"
+            href="/product"
             className="text-sm text-slate-600 hover:text-slate-900"
           >
-            Products
+            Product
           </Link>
           <Link
             href="#"
