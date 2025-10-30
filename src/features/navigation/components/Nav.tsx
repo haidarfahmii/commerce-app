@@ -15,13 +15,13 @@ export default function Nav() {
 
         <div className="hidden md:flex gap-8">
           <Link
-            href="#"
+            href="/"
             className="text-sm text-slate-600 hover:text-slate-900"
           >
             Home
           </Link>
           <Link
-            href="#"
+            href="/shop"
             className="text-sm text-slate-600 hover:text-slate-900"
           >
             Shop
@@ -33,7 +33,7 @@ export default function Nav() {
             Product
           </Link>
           <Link
-            href="#"
+            href="/contact"
             className="text-sm text-slate-600 hover:text-slate-900"
           >
             Contact Us
