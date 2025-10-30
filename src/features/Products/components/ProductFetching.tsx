@@ -16,14 +16,15 @@ async function getProduct() {
   }
 }
 
-export default async function ProductServer() {
+export default async function ProductFetching() {
   const rawProducts = await getProduct();
 
   const products = rawProducts.map((product: any) => ({
     id: product.objectId,
     name: product.name,
+    slug: product.slug,
     price: `Rp. ${product.price.toLocaleString("id-ID")}`,
-    imageUrl: product.imageUrl,
+    imageUrl1: product.imageUrl1,
     isNew: product.isNew,
   }));
 
